@@ -1,0 +1,24 @@
+/*
+Name: Manjit Singh DUhan
+Admission NO: IITP001316
+email id: manjit_2303res134@iitp.ac.in
+Executive-M.Tech AI & DSE
+*/
+
+CREATE TABLE students_1 (roll INT, name VARCHAR(20), age INT, city VARCHAR(20), PRIMARY KEY (roll) );
+
+INSERT INTO students_1 (roll, name, age, city) VALUES (1, 'Manjit', 20, 'Delhi');
+INSERT INTO students_1 (roll, name, age, city) VALUES (2, 'Sohan', 15, 'Patna');
+INSERT INTO students_1 (roll, name, age, city) VALUES (3, 'Ram', 10, 'Mumbai');
+INSERT INTO students_1 (roll, name, age, city) VALUES (4, 'Niku', 22, 'Bannglore');
+INSERT INTO students_1 (roll, name, age, city) VALUES (5, 'Piku', 21, 'Gurgaon');
+INSERT INTO students_1 (roll, name, age, city) VALUES (6, 'Raj', 30, 'Delhi');
+INSERT INTO students_1 (roll, name, age, city) VALUES (7, 'Nimi', 45, 'Patna');
+INSERT INTO students_1 (roll, name, age, city) VALUES (8, 'Kumar', 35, 'Noida');
+
+
+SELECT MIN(age) FROM students_1;
+SELECT MAX(age) FROM students_1;
+SELECT * FROM students_1 where city = "Patna";
+SELECT COUNT(*) FROM students_1;
+SELECT * FROM students_1 WHERE name LIKE 'r%';

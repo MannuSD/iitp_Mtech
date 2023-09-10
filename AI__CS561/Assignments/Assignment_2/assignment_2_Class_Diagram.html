@@ -1,0 +1,90 @@
+<html>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+      <div class="mermaid">
+    
+        classDiagram
+          class BFS_puzzle_solver {
+            start_time : datetime
+            find_the_solution(print_sol)
+          }
+          class DFS_puzzle_solver {
+            start_time : datetime
+            find_the_solution(print_sol)
+          }
+          class IDS_puzzle_solver {
+            max_depth : int
+            start_time : datetime
+            find_the_solution(print_sol, max_depth)
+          }
+          class Priority_Queue {
+            max_size
+            add(item)
+            remove()
+          }
+          class Queue {
+            list : list
+            max_size : int
+            add(item)
+            clear()
+            current_size()
+            empty()
+            max_grown_size()
+            remove()
+          }
+          class Stack {
+            remove()
+          }
+          class UCS_puzzle_solver {
+            start_time : datetime
+            find_the_solution(print_sol)
+          }
+          class node_state {
+            cost : int
+            depth : int
+            hash : int
+            matrix : ndarray
+            max_column
+            max_row
+            move : NoneType
+            parent : NoneType
+            get_copy()
+            get_cost()
+            get_depth()
+            get_hash()
+            get_i_j_of(val)
+            get_value(i, j)
+            print()
+            set_cost()
+            set_depth()
+          }
+          class puzzle {
+            end_time : datetime
+            explored_list : list
+            goal_state
+            max_column
+            max_depth : int
+            max_row
+            solution_steps : list
+            start_state
+            start_time : datetime
+            states_explored : int
+            display_statistics(type_of_algorithm, solution_found, print_sol)
+            get_neighbor_states(current_state)
+            move(current_state, move, i, j)
+            print_solution()
+            solve(my_list, type_of_algorithm)
+            validate_input_matrix(matrix)
+          }
+          BFS_puzzle_solver --|> puzzle
+          DFS_puzzle_solver --|> puzzle
+          IDS_puzzle_solver --|> puzzle
+          Priority_Queue --|> Queue
+          Stack --|> Queue
+          UCS_puzzle_solver --|> puzzle
+          node_state --* puzzle : start_state
+          node_state --* puzzle : goal_state
+  
+       </div>
+  </body>
+</html>
