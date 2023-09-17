@@ -1,0 +1,49 @@
+/*
+Name: Manjit Singh DUhan
+Admission NO: IITP001316
+email id: manjit_2303res134@iitp.ac.in
+Executive-M.Tech AI & DSE
+Home work 2
+*/
+========================================================================================
+
+CREATE TABLE students (roll INT, name VARCHAR(20), age INT, city VARCHAR(20), PRIMARY KEY (roll) ); 
+
+INSERT INTO students (roll, name, age, city) VALUES ('1', 'Rahul', '20', 'Delhi');
+INSERT INTO students (roll, name, age, city) VALUES ('2', 'Sohan', '15', 'Patna');
+INSERT INTO students (roll, name, age, city) VALUES ('3', 'Ram', '55', 'Mumbai');
+INSERT INTO students (roll, name, age, city) VALUES ('4', 'Niku', '58', 'Bannglore');
+INSERT INTO students (roll, name, age, city) VALUES ('5', 'Piku', '21', 'Gurgaon');
+INSERT INTO students (roll, name, age, city) VALUES ('6', 'Raj', '30', 'Delhi');
+INSERT INTO students (roll, name, age, city) VALUES ('7', 'Nimi', '45', 'Patna');
+INSERT INTO students (roll, name, age, city) VALUES ('8', 'Kumar', '35', 'Noida');
+
+ 
+Answer 1: SELECT city, COUNT(roll) from students GROUP BY city;
+Answer 2: SELECT city, COUNT(roll) from students WHERE age > 29 GROUP BY city;
+Answer 3: SELECT roll, name, age FROM students ORDER BY age desc;
+Answer 4: SELECT * FROM students WHERE age between 25 and 35;
+Answer 5: SELECT city, COUNT(roll) FROM students GROUP BY city HAVING COUNT(roll) > 1;
+
+ 
+
+========================================================================================
+
+CREATE TABLE sq (num INT, square INT, PRIMARY KEY (num) );
+INSERT INTO sq (num , square) VALUES (2, 4);
+INSERT INTO sq (num , square) VALUES (3, 9);
+INSERT INTO sq (num , square) VALUES (4, 16);
+
+
+CREATE TABLE cu (num INT, cube INT, PRIMARY KEY (num) );
+INSERT INTO cu (num , cube) VALUES (2, 8);
+INSERT INTO cu (num , cube) VALUES (3, 27);
+INSERT INTO cu (num , cube) VALUES (5, 125);
+
+
+Select sq.num, sq.square, cu.cube FROM sq join cu;
+Select sq.num, sq.square, cu.cube FROM sq cross join cu;
+
+Select sq.num, sq.square, cu.cube FROM sq natural join cu;
+
+Select sq.num, sq.square, cu.cube FROM sq inner join cu on sq.num > cu.num;
