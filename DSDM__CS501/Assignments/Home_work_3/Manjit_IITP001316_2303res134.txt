@@ -1,0 +1,71 @@
+/*
+Name: Manjit Singh Duhan
+Admission NO: IITP001316
+Roll No: 2303res134
+email id: manjit_2303res134@iitp.ac.in
+Executive-M.Tech AI & DSE
+Home work 3
+Date: 24 Sep 2023
+*/
+========================================================================================
+
+1) create a table having username(primary key) and password attribute. take 2 records
+    CREATE table login( username varchar(20) NOT NULL PRIMARY KEY, password varchar(20) );
+    INSERT into login values("user1", "user1pass");
+    INSERT into login values("ram_1", "new@2pass");
+
+2) update the password of user 2.
+    UPDATE login set password = "ram_new_pass" where username = "ram_1";
+
+3) update username of user 2.
+    UPDATE login set username = "ram_2" where username = "ram_1";
+
+4) attempt: update username of user 2 similar to user 1.
+    UPDATE login set username = "user1" where username = "ram_1"
+         Error: could not execute statement due to a constraint failure (19 UNIQUE constraint failed: login.username
+
+5) delete the user 2.
+    DELETE FROM login WHERE username = "ram_2";
+
+6) ADD new attribute 'full_name' having varchar(20) datatype in the table.
+    ALTER TABLE login ADD "full_name" varchar(20);
+
+7) Insert values to full_name attribute.
+    UPDATE login set full_name = "User1 Full Name" where username = "user1";
+
+8) Rename attribute 'full_name' to 'f_name'.
+    ALTER TABLE login RENAME COLUMN "full_name" to "f_name";
+
+9) create another table login2 with username(refering from previous table), age, institute attributes.
+    CREATE TABLE login_1 ( 
+    username varchar(20) NOT NULL,
+    age int,
+    institute varchar(30),
+    PRIMARY KEY (username),
+    FOREIGN KEY (username) REFERENCES login(username) );
+    
+    #inserted few data to both the tables:
+
+    INSERT into login values("ram_1", "ram@passw0rd", "Ram Kumar");
+    INSERT into login values("Sahil", "sahile@password", "Sahil Kumar");
+    INSERT into login values("Raju", "r@jU123", "Raju Singh");
+
+    INSERT into login_1 values("user1", 22, "IITP");
+    INSERT into login_1 values("ram_1", 35, "IITD");
+    INSERT into login_1 values("Sahil", 29, "IITP");
+    INSERT into login_1 values("Raju", 19, "IITPK");
+
+10) Print username, f_name, age, institute.
+    Select login.username, login.f_name,  login_1.age,  login_1.institute  FROM login natural join login_1 ;
+
+11) print username, f_name, age having age greater than 25.
+    Select login.username, login.f_name,  login_1.age  FROM login natural join login_1 where login_1.age > 25 AND login_1.age < 40;
+
+12) delete attribute 'f_name' from the table.
+    ALTER TABLE login DROP f_name;
+
+13) drop the table.:
+    #We need to drop the login_1 first
+
+    DROP TABLE login_1;
+    DROP TABLE login;
